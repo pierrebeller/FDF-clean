@@ -47,7 +47,6 @@ void	draw_line(t_window *win, t_points *p1, t_points *p2)
 
 void	draw_point(t_window *win, int x, int y, int color)
 {
-
 	ft_memcpy(&win->data[(x * 4) + (y * win->size)], (const void *)&(color),
 				(size_t)(sizeof(int)));
 }
@@ -71,7 +70,7 @@ void	ft_slow_increase(t_bresenham *bres, t_window *window)
 		}
 		if (check_x(bres->x) && check_y(bres->y))
 		{
-			draw_point(window, bres->x, bres->y,bres->color);
+			draw_point(window, bres->x, bres->y, bres->color);
 		}
 		i++;
 	}

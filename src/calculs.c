@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <stdio.h>
 
 void		calcul_coords(t_window *window)
 {
@@ -39,8 +40,8 @@ void		calculate(t_window *window, t_points *point)
 	}
 	else if (window->opt == PARA)
 	{
-		point->new_x = point->x - (point->z) / 2 + WIN_W / 2;
-		point->new_y = point->y + point->z + WIN_H / 3;
+		point->new_x = window->pad * ((point->x - (point->z))) / 2 + WIN_W / 2 + window->move_lr;
+		point->new_y = window->pad * (point->y + point->z) + WIN_H / 3 + window->move_ud;
 	}
 }
 
@@ -62,7 +63,7 @@ t_bresenham	*bres_build(t_points *p1, t_points *p2, int max_z)
 	return (bres);
 }
 
-int		ft_paint(int p1, int p2, int max_z)
+int			ft_paint(int p1, int p2, int max_z)
 {
 	if (((p1 + p2) * 500) > 500 * max_z)
 		return (0xFFFFFF);
@@ -74,5 +75,4 @@ int		ft_paint(int p1, int p2, int max_z)
 		return (0x0041FF);
 	else
 		return (0xAD4F09);
-
 }

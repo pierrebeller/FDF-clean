@@ -79,7 +79,7 @@ t_points	***ft_fdf(t_window *win)
 		if (!line)
 		{
 			ft_putstr_fd("Invalide map\n", 2);
-			exit (1);
+			exit(1);
 		}
 		ft_lst_push_back(&map, ft_lstnew(ft_strdup(line), ft_strlen(line)));
 		free(line);

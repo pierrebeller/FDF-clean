@@ -63,7 +63,7 @@ typedef	struct		s_window
 	char			*path;
 	void			*mlx;
 	void			*win;
-	char 			*data;
+	char			*data;
 	void			*img;
 	int				opt;
 	int				size;
@@ -91,8 +91,7 @@ void				calculate(t_window *win, t_points *point);
 t_bresenham			*bres_build(t_points *p1, t_points *p2, int max_z);
 int					ft_paint(int p1, int p2, int max_z);
 int					mlx_hook(void *win_ptr, int x_event, int x_mask,
-                 	int (*funct)(), void *param);
-
+					int (*funct)(), void *param);
 void				draw_map(t_window *win);
 void				redraw(t_window *window);
 void				draw_line(t_window *win, t_points *p1, t_points *p2);
@@ -118,4 +117,5 @@ void				move_u(t_window *window);
 void				move_d(t_window *window);
 void				move_l(t_window *window);
 void				move_r(t_window *window);
+void				projection(t_window *window);
 #endif
