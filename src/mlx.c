@@ -36,7 +36,7 @@ void		ft_do_fdf(t_window *window)
 {
 	ft_create_window(window);
 	calcul_coords(window);
-	mlx_key_hook(window->win, key_hook, window);
+	//mlx_key_hook(window->win, key_hook, window);
 	mlx_hook(window->win, 2, (1L << 0), key_press, window);
 	//mlx_hook(window->win, 3, (1L << 1), key_release, window);
 	//mlx_mouse_hook(window->win, mouse_hook, window);

@@ -35,24 +35,22 @@ void	zoom_dec(t_window *window)
 
 void	projection(t_window *window)
 {
-	if(window->opt == ISO)
+	if (window->opt == ISO)
 		window->opt = PARA;
-	else if(window->opt == PARA)
+	else if (window->opt == PARA)
 		window->opt = ISO;
 	redraw(window);
 }
 
 int		key_press(int keycode, t_window *window)
 {
+	ft_putnbr(keycode);
+	ft_putchar('\n');
 	if (keycode == 53)
-	{
-		/*mlx_clear_window(window->mlx, window->win);
-		exit(0);*/
 		ft_quit(window);
-	}
-	if (keycode == 30)
+	if (keycode == 69)
 		zoom_inc(window);
-	if (keycode == 33)
+	if (keycode == 78)
 		zoom_dec(window);
 	if (keycode == 123)
 		move_l(window);
@@ -62,12 +60,9 @@ int		key_press(int keycode, t_window *window)
 		move_u(window);
 	if (keycode == 125)
 		move_d(window);
-	return (0);
-}
-
-int		key_hook(int keycode, t_window *window)
-{
 	if (keycode == 35)
 		projection(window);
+	//if (keycode == 4)
+		//hide_legend(window);
 	return (0);
 }

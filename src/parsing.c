@@ -57,7 +57,6 @@ t_points	***ft_create_map(t_list *map, t_window *win)
 
 	y = 0;
 	tab = malloc(sizeof(t_points **) * ft_lstlen(map) + 1);
-	ft_putnbr(ft_lstlen(map));
 	if (tab == NULL)
 		return (NULL);
 	while (map)

@@ -39,8 +39,10 @@ void		calculate(t_window *window, t_points *point)
 	}
 	else if (window->opt == PARA)
 	{
-		point->new_x = window->pad * ((point->x - (point->z))) / 2 + WIN_W / 2 + window->move_lr;
-		point->new_y = window->pad * (point->y + point->z) + WIN_H / 3 + window->move_ud;
+		point->new_x = window->pad * ((point->x - (point->z))) / 2\
+		+ WIN_W / 2 + window->move_lr;
+		point->new_y = window->pad * (point->y + point->z)\
+		+ WIN_H / 3 + window->move_ud;
 	}
 }
 
