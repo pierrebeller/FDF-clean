@@ -20,7 +20,7 @@ void	redraw(t_window *window)
 
 void	zoom_inc(t_window *window)
 {
-	window->pad *= 2;
+	window->pad += 1;
 	redraw(window);
 }
 
@@ -28,7 +28,7 @@ void	zoom_dec(t_window *window)
 {
 	if (window->pad > 1)
 	{
-		window->pad /= 2;
+		window->pad -= 1;
 		redraw(window);
 	}
 }
@@ -46,8 +46,9 @@ int		key_press(int keycode, t_window *window)
 {
 	if (keycode == 53)
 	{
-		mlx_clear_window(window->mlx, window->win);
-		exit(0);
+		/*mlx_clear_window(window->mlx, window->win);
+		exit(0);*/
+		ft_quit(window);
 	}
 	if (keycode == 30)
 		zoom_inc(window);

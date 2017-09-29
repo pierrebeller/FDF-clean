@@ -118,4 +118,7 @@ void				move_d(t_window *window);
 void				move_l(t_window *window);
 void				move_r(t_window *window);
 void				projection(t_window *window);
+
+void				del(void *content, size_t size);
+void				ft_quit(t_window *win);
 #endif

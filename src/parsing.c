@@ -18,6 +18,8 @@ t_points	*ft_newpoint(char *data, int y, int index, t_window *win)
 	t_points *point;
 
 	point = malloc(sizeof(t_points));
+	if (point == NULL)
+		return (NULL);
 	point->x = index;
 	point->y = y;
 	point->z = ft_atoi(data);
@@ -34,6 +36,8 @@ t_points	**ft_new_line(char *line, int y, t_window *win)
 
 	index = 0;
 	bigline = malloc(sizeof(t_points *) * ft_strlen(line) + 1);
+	if (bigline == NULL)
+		return (NULL);
 	tab = ft_strsplit(line, ' ');
 	while (tab[index])
 	{
@@ -52,7 +56,10 @@ t_points	***ft_create_map(t_list *map, t_window *win)
 	int			y;
 
 	y = 0;
-	tab = malloc(sizeof(t_points **) * (ft_lstlen(map) + 1));
+	tab = malloc(sizeof(t_points **) * ft_lstlen(map) + 1);
+	ft_putnbr(ft_lstlen(map));
+	if (tab == NULL)
+		return (NULL);
 	while (map)
 	{
 		tab[y] = ft_new_line(map->content, y, win);
@@ -71,7 +78,6 @@ t_points	***ft_fdf(t_window *win)
 	t_list		*map;
 	t_points	***tab;
 
-	map = NULL;
 	if (!(fd = open(win->path, O_RDONLY)))
 		exit(0);
 	while (get_next_line(fd, &line))
@@ -85,6 +91,7 @@ t_points	***ft_fdf(t_window *win)
 		free(line);
 	}
 	tab = ft_create_map(map, win);
+	ft_lstdel(&map, del);
 	free(map);
 	return (tab);
 }
