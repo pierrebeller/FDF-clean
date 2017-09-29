@@ -44,8 +44,6 @@ void	projection(t_window *window)
 
 int		key_press(int keycode, t_window *window)
 {
-	ft_putnbr(keycode);
-	ft_putchar('\n');
 	if (keycode == 53)
 		ft_quit(window);
 	if (keycode == 69)
@@ -62,7 +60,5 @@ int		key_press(int keycode, t_window *window)
 		move_d(window);
 	if (keycode == 35)
 		projection(window);
-	//if (keycode == 4)
-		//hide_legend(window);
 	return (0);
 }

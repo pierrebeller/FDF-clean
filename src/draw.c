@@ -69,9 +69,7 @@ void	ft_slow_increase(t_bresenham *bres, t_window *window)
 			bres->y += bres->yinc;
 		}
 		if (check_x(bres->x) && check_y(bres->y))
-		{
 			draw_point(window, bres->x, bres->y, bres->color);
-		}
 		i++;
 	}
 }
@@ -94,9 +92,7 @@ void	ft_high_increase(t_bresenham *bres, t_window *window)
 			bres->x += bres->xinc;
 		}
 		if (check_x(bres->x) && check_y(bres->y))
-		{
 			draw_point(window, bres->x, bres->y, bres->color);
-		}
 		i++;
 	}
 }

@@ -22,12 +22,6 @@ void	del(void *content, size_t size)
 
 void	ft_free_structure(t_points *point)
 {
-	point->x = 0;
-	point->y = 0;
-	point->z = 0;
-	point->new_x = 0;
-	point->new_y = 0;
-	point->color = 0;
 	free(point);
 }
 
@@ -42,6 +36,7 @@ void	ft_free_line(t_points **line)
 		i++;
 	}
 	free(line[i]);
+	free(line);
 	line[i] = NULL;
 }
 
@@ -56,6 +51,7 @@ void	ft_quit(t_window *window)
 		i++;
 	}
 	free(window->map[i]);
+	free(window->map);
 	window->map[i] = NULL;
 	ft_bzero(window->data, WIN_H * WIN_W * 4);
 	mlx_clear_window(window->mlx, window->win);

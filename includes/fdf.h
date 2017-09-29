@@ -25,13 +25,10 @@
 # define ISO_CONST2 2
 # define WIN_W 1280
 # define WIN_H 800
-# define ZOOM 5
 # define ISO 1
 # define PARA 0
-# define BET_Z 2
 # define ON 1
 # define OFF 0
-# define COLOR 0x00FFFF00
 
 typedef struct		s_points
 {
@@ -68,20 +65,15 @@ typedef	struct		s_window
 	int				opt;
 	int				size;
 	int				endian;
-	int				color;
 	int				pad;
 	int				pad_h;
 	int				move_lr;
 	int				move_ud;
-	int				angle;
-	int				rot;
-	int				legend;
 	t_points		***map;
 	int				map_h;
 	int				map_w;
 	int				max_z;
-	int				max_x;
-	int				max_y;
+	int				color;
 }					t_window;
 
 int					put_points(t_points ***tab);

@@ -47,6 +47,10 @@ t_points	**ft_new_line(char *line, int y, t_window *win)
 	if (index > win->map_w)
 		win->map_w = index;
 	bigline[index] = NULL;
+	index = 0;
+	while (tab[index])
+		free(tab[index++]);
+	free(tab);
 	return (bigline);
 }
 
@@ -86,7 +90,7 @@ t_points	***ft_fdf(t_window *win)
 			ft_putstr_fd("Invalide map\n", 2);
 			exit(1);
 		}
-		ft_lst_push_back(&map, ft_lstnew(ft_strdup(line), ft_strlen(line)));
+		ft_lst_push_back(&map, ft_lstnew(line, ft_strlen(line)));
 		free(line);
 	}
 	tab = ft_create_map(map, win);
